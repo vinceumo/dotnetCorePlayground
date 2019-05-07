@@ -4,11 +4,6 @@
 
 https://www.w3resource.com/csharp-exercises/basic/index.php
 
-<details>
-  <summary>
-  Table of Contents
-  <summary>
-
 - [C# practice](#c-practice)
   - [C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution](#c-sharp-basic-declarations-and-expressions--exercises-practice-solution)
     - [Exercise 1](#exercise-1)
@@ -31,7 +26,6 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 18](#exercise-18)
     - [Exercise 19](#exercise-19)
     - [Exercise 20](#exercise-20)
-      </details>
 
 ### Exercise 1
 
