@@ -6,13 +6,14 @@ namespace Exercise
   {
     static void Main(string[] args)
     {
-      Console.Write("Input a string : ");
-      string text = Console.ReadLine();
+      Console.Write("Enter a digit: ");
+      int x = int.Parse(Console.ReadLine());
 
-      if (text.Length > 0)
-      {
-        Console.WriteLine(text.Substring(0, 1) + text + text.Substring(0, 1));
-      }
+      Console.WriteLine($"{x}{x}{x}");
+      Console.WriteLine($"{x} {x}");
+      Console.WriteLine($"{x} {x}");
+      Console.WriteLine($"{x} {x}");
+      Console.WriteLine($"{x}{x}{x}");
     }
   }
 }

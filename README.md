@@ -341,15 +341,18 @@ Expected Output:
 - 25252525
 
 ```cs
-static void Main(string[] args)
+class Program
 {
-  Console.Write("Enter a digit: ");
-  int x = int.Parse(Console.ReadLine());
-
-  for (int i = 0; i < 2; i++)
+  static void Main(string[] args)
   {
-    Console.WriteLine($"{x} {x} {x} {x}");
-    Console.WriteLine($"{x}{x}{x}{x}");
+    Console.Write("Enter a digit: ");
+    int x = int.Parse(Console.ReadLine());
+
+    for (int i = 0; i < 2; i++)
+    {
+      Console.WriteLine($"{x} {x} {x} {x}");
+      Console.WriteLine($"{x}{x}{x}{x}");
+    }
   }
 }
 ```
@@ -371,7 +374,20 @@ Expected Output:
 - 555
 
 ```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Enter a digit: ");
+    int x = int.Parse(Console.ReadLine());
 
+    Console.WriteLine($"{x}{x}{x}");
+    Console.WriteLine($"{x} {x}");
+    Console.WriteLine($"{x} {x}");
+    Console.WriteLine($"{x} {x}");
+    Console.WriteLine($"{x}{x}{x}");
+  }
+}
 ```
 
 ### Exercise 14
