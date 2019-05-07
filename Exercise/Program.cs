@@ -6,22 +6,13 @@ namespace Exercise
   {
     static void Main(string[] args)
     {
-      Console.Write("Enter your word:");
+      Console.Write("Input a string : ");
       string text = Console.ReadLine();
 
-      for (int i = 0; i < 3; i++)
+      if (text.Length > 0)
       {
-        Console.WriteLine(RemoveRandomLetter(text));
+        Console.WriteLine(text.Substring(0, 1) + text + text.Substring(0, 1));
       }
-    }
-
-    static string RemoveRandomLetter(string word)
-    {
-      int wordLength = word.Length;
-      Random random = new Random();
-      int indexToRemove = random.Next(0, wordLength - 1);
-
-      return word.Remove(indexToRemove, 1);
     }
   }
 }
