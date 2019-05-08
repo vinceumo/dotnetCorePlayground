@@ -26,6 +26,8 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 18](#exercise-18)
     - [Exercise 19](#exercise-19)
     - [Exercise 20](#exercise-20)
+    - [Exercise 21](#exercise-21)
+    - [Exercise 22](#exercise-22)
 
 ### Exercise 1
 
@@ -546,18 +548,109 @@ class Program
 
 ### Exercise 18
 
-```cs
+Write a C# program to check two given integers and return true if one is negative and one is positive
 
+Sample Output:
+
+- Input first integer: -5
+- Input second integer: 25
+- Check if one is negative and one is positive: True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input first integer: ");
+    int x = int.Parse(Console.ReadLine());
+    Console.Write("Input second integer: ");
+    int y = int.Parse(Console.ReadLine());
+    bool test = (y < 0 && x >= 0) || (x < 0 && y >= 0);
+
+    Console.WriteLine($"Check if one is negative and one is positive: {test}");
+  }
+}
 ```
 
 ### Exercise 19
 
-```cs
+Write a C# program to compute the sum of two given integers, if two values are equal then return the triple of their sum.
 
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input first integer: ");
+    int x = int.Parse(Console.ReadLine());
+    Console.Write("Input second integer: ");
+    int y = int.Parse(Console.ReadLine());
+    int result = (x == y) ? (x + y) * 3 : x + y;
+
+    Console.WriteLine($"Result: {result}");
+  }
+}
 ```
 
 ### Exercise 20
 
-```cs
+Write a C# program to get the absolute value of the difference between two given numbers. Return double the absolute value of the difference if the first number is greater than second number.
 
+```cs
+class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.Write("Input first integer: ");
+      int x = int.Parse(Console.ReadLine());
+      Console.Write("Input second integer: ");
+      int y = int.Parse(Console.ReadLine());
+      int result = (x > y) ? (x - y) * 2 : x - y;
+
+      Console.WriteLine($"Result: {result}");
+    }
+  }
+```
+
+### Exercise 21
+
+Write a C# program to check the sum of the two given integers and return true if one of the integer is 20 or if their sum is 20
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input first integer: ");
+    int x = int.Parse(Console.ReadLine());
+    Console.Write("Input second integer: ");
+    int y = int.Parse(Console.ReadLine());
+    bool test = x == 20 || y == 20 || x + y == 20;
+
+    Console.WriteLine($"Result: {test}");
+  }
+}
+```
+
+### Exercise 22
+
+Write a C# program to check if an given integer is within 20 of 100 or 200. (Means 100+-10 or 200+-10)
+
+Sample Output:
+
+- Input an integer: 25
+- False
+
+```cs
+class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.Write("Input first integer: ");
+      int x = int.Parse(Console.ReadLine());
+      bool test = (Math.Abs(x - 100) <= 10 || Math.Abs(x - 200) <= 10);
+
+      Console.WriteLine($"Result: {test}");
+    }
+  }
 ```

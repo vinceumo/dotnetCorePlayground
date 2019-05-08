@@ -6,14 +6,11 @@ namespace Exercise
   {
     static void Main(string[] args)
     {
-      Console.Write("Enter a digit: ");
+      Console.Write("Input first integer: ");
       int x = int.Parse(Console.ReadLine());
+      bool test = (Math.Abs(x - 100) <= 10 || Math.Abs(x - 200) <= 10);
 
-      Console.WriteLine($"{x}{x}{x}");
-      Console.WriteLine($"{x} {x}");
-      Console.WriteLine($"{x} {x}");
-      Console.WriteLine($"{x} {x}");
-      Console.WriteLine($"{x}{x}{x}");
+      Console.WriteLine($"Result: {test}");
     }
   }
 }
