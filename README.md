@@ -28,6 +28,11 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 20](#exercise-20)
     - [Exercise 21](#exercise-21)
     - [Exercise 22](#exercise-22)
+    - [Exercise 23](#exercise-23)
+    - [Exercise 24](#exercise-24)
+    - [Exercise 25](#exercise-25)
+    - [Exercise 26](#exercise-26)
+    - [Exercise 27](#exercise-27)
 
 ### Exercise 1
 
@@ -643,14 +648,201 @@ Sample Output:
 
 ```cs
 class Program
+{
+  static void Main(string[] args)
   {
-    static void Main(string[] args)
-    {
-      Console.Write("Input first integer: ");
-      int x = int.Parse(Console.ReadLine());
-      bool test = (Math.Abs(x - 100) <= 10 || Math.Abs(x - 200) <= 10);
+    Console.Write("Input integer: ");
+    int x = int.Parse(Console.ReadLine());
+    bool test = (Math.Abs(x - 100) <= 10 || Math.Abs(x - 200) <= 10);
 
-      Console.WriteLine($"Result: {test}");
+    Console.WriteLine($"Result: {test}");
+  }
+}
+```
+
+### Exercise 23
+
+Write a C# program to convert a given string into lowercase.
+
+Sample Output:
+
+- write a c# sharp program to display the following pattern using the alphabet.
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input string: ");
+    string text = Console.ReadLine();
+
+    Console.WriteLine(text.ToLower());
+  }
+}
+```
+
+### Exercise 24
+
+Write a C# program to find the longest word in a string.
+
+Test Data:
+
+- Write a C# Sharp Program to display the following pattern using the alphabet.
+
+Sample Output:
+
+- following
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input string: ");
+    string text = Console.ReadLine();
+    string[] words = text.Split();
+    string longestWord = "";
+
+    foreach (string word in words)
+    {
+      if (word.Length > longestWord.Length)
+      {
+        longestWord = word;
+      }
+    }
+
+    Console.WriteLine(longestWord);
+  }
+}
+```
+
+or shorter solution using `OrderBy` (`System.Linq`)
+
+```cs
+// using System.Linq;
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input string: ");
+    string text = Console.ReadLine();
+    string longestWord = text.Split(' ').OrderBy(x => x.Length).Last();
+
+    Console.WriteLine(longestWord);
+  }
+}
+```
+
+### Exercise 25
+
+Write a C# program to print the odd numbers from 1 to 99. Prints one number per line.
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    for (int i = 0; i < 100; i++)
+    {
+      if (i % 2 != 0)
+      {
+        Console.WriteLine(i);
+      }
     }
   }
+}
+```
+
+or by increasing by 2
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    for (int i = 1; i < 100; i += 2)
+    {
+      Console.WriteLine(i);
+    }
+  }
+}
+```
+
+### Exercise 26
+
+Write a C# program to compute the sum of the first 500 prime numbers.
+
+Sample Output:
+
+- Sum of the first 500 prime numbers:
+- 3682913
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Enter max number: ");
+    int maxNumber = int.Parse(Console.ReadLine());
+    int total = 0;
+    int primeCounter = 0;
+    int i = 0;
+
+    while (primeCounter < maxNumber)
+    {
+      if (IsPrime(i))
+      {
+        total += i;
+        primeCounter++;
+      }
+      i++;
+    }
+
+    Console.WriteLine($"Sum of the first {maxNumber} prime numbers: {total}");
+  }
+
+  static bool IsPrime(int number)
+  {
+    if (number <= 1) return false;
+    if (number == 2) return true;
+    if (number % 2 == 0) return false;
+
+    var boundary = (int)Math.Floor(Math.Sqrt(number));
+
+    for (int i = 3; i <= boundary; i += 2)
+      if (number % i == 0)
+        return false;
+
+    return true;
+  }
+}
+```
+
+### Exercise 27
+
+Write a C# program and compute the sum of the digits of an integer.
+
+Sample Output:
+
+- Input a number(integer): 12
+- Sum of the digits of the said integer: 3
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input a number(integer): ");
+    string numbers = Console.ReadLine();
+    int total = 0;
+
+    foreach (char number in numbers)
+    {
+      total += int.Parse(number.ToString());
+    }
+
+    Console.WriteLine($"Sum of the digits of the {numbers} integer: {total}");
+  }
+}
 ```

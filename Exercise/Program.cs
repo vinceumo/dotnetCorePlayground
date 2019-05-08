@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Exercise
 {
@@ -6,11 +7,16 @@ namespace Exercise
   {
     static void Main(string[] args)
     {
-      Console.Write("Input first integer: ");
-      int x = int.Parse(Console.ReadLine());
-      bool test = (Math.Abs(x - 100) <= 10 || Math.Abs(x - 200) <= 10);
+      Console.Write("Input a number(integer): ");
+      string numbers = Console.ReadLine();
+      int total = 0;
 
-      Console.WriteLine($"Result: {test}");
+      foreach (char number in numbers)
+      {
+        total += int.Parse(number.ToString());
+      }
+
+      Console.WriteLine($"Sum of the digits of the {numbers} integer: {total}");
     }
   }
 }
