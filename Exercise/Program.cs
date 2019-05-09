@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+
 
 namespace Exercise
 {
@@ -7,16 +7,11 @@ namespace Exercise
   {
     static void Main(string[] args)
     {
-      Console.Write("Input a number(integer): ");
-      string numbers = Console.ReadLine();
-      int total = 0;
+      Console.Write("Hexadecimal number: ");
+      string hexNumber = Console.ReadLine();
+      int decimalNumber = Convert.ToInt32(hexNumber, 16);
 
-      foreach (char number in numbers)
-      {
-        total += int.Parse(number.ToString());
-      }
-
-      Console.WriteLine($"Sum of the digits of the {numbers} integer: {total}");
+      Console.WriteLine($"Decimal number: {decimalNumber}");
     }
   }
 }

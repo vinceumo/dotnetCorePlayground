@@ -33,6 +33,9 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 25](#exercise-25)
     - [Exercise 26](#exercise-26)
     - [Exercise 27](#exercise-27)
+    - [Exercise 28](#exercise-28)
+    - [Exercise 29](#exercise-29)
+    - [Exercise 30](#exercise-30)
 
 ### Exercise 1
 
@@ -843,6 +846,80 @@ class Program
     }
 
     Console.WriteLine($"Sum of the digits of the {numbers} integer: {total}");
+  }
+}
+```
+
+### Exercise 28
+
+Write a C# program to reverse the words of a sentence
+
+Sample Output:
+
+- Original String: Display the pattern like pyramid using the alphabet.
+- Reverse String: alphabet. the using pyramid like pattern the Display
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Enter a string: ");
+    string text = Console.ReadLine();
+
+    Console.WriteLine($"Reverse string: {ReverseStringWords(text)}");
+  }
+
+  static string ReverseStringWords(string text)
+  {
+    string[] words = text.Split(' ');
+    Array.Reverse(words);
+    return string.Join(" ", words);
+  }
+}
+```
+
+### Exercise 29
+
+Write a C# program to find the size of a specified file in bytes.
+
+Sample Output:
+
+- Size of a file: 31
+
+```cs
+// using System.IO;
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    double fileSizeBytes = new FileInfo("testFile.txt").Length;
+
+    Console.WriteLine($"File size: {fileSizeBytes}");
+  }
+}
+```
+
+### Exercise 30
+
+Write a C# program to convert a hexadecimal number to decimal number.
+
+Sample Output:
+
+- Hexadecimal number: 4B0
+- Decimal number: 1200
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Hexadecimal number: ");
+    string hexNumber = Console.ReadLine();
+    int decimalNumber = Convert.ToInt32(hexNumber, 16);
+
+    Console.WriteLine($"Decimal number: {decimalNumber}");
   }
 }
 ```
