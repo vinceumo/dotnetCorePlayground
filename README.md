@@ -36,6 +36,7 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 28](#exercise-28)
     - [Exercise 29](#exercise-29)
     - [Exercise 30](#exercise-30)
+    - [Exercise 31](#exercise-31)
 
 ### Exercise 1
 
@@ -920,6 +921,38 @@ class Program
     int decimalNumber = Convert.ToInt32(hexNumber, 16);
 
     Console.WriteLine($"Decimal number: {decimalNumber}");
+  }
+}
+```
+
+### Exercise 31
+
+Write a C# program to multiply corresponding elements of two arrays of integers.
+
+Sample Output:
+
+- Array1: [1, 3, -5, 4]
+- Array2: [1, 4, -5, -2]
+- Multiply corresponding elements of two arrays: 1 12 25 -8
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] array1 = { 1, 3, -5, 4 };
+    int[] array2 = { 1, 4, -5, -2 };
+    int shortestArrLength = (array1.Length > array2.Length) ? array2.Length : array1.Length;
+    int[] multiplyArr = new int[shortestArrLength];
+
+    for (int i = 0; i < shortestArrLength; i++)
+    {
+      multiplyArr[i] = array1[i] * array2[i];
+    }
+
+    string result = string.Join(", ", multiplyArr);
+
+    Console.WriteLine($"Multiply corresponding elements of two arraysDecimal number: {result}");
   }
 }
 ```
