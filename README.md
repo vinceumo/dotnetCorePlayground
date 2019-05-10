@@ -37,6 +37,7 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 29](#exercise-29)
     - [Exercise 30](#exercise-30)
     - [Exercise 31](#exercise-31)
+    - [Exercise 32](#exercise-32)
 
 ### Exercise 1
 
@@ -953,6 +954,29 @@ class Program
     string result = string.Join(", ", multiplyArr);
 
     Console.WriteLine($"Multiply corresponding elements of two arraysDecimal number: {result}");
+  }
+}
+```
+
+### Exercise 32
+
+Write a C# program to create a new string of four copies, taking last four characters from a given string. If the length of the given string is less than 4 return the original one
+
+Sample Output:
+
+- Input a string : The quick brown fox jumps over the lazy dog.
+- dog.dog.dog.dog.
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input a string: ");
+    string text = Console.ReadLine();
+    string last4Chars = (text.Length > 4) ? text.Substring(text.Length - 4) : text;
+
+    Console.WriteLine($"{last4Chars}{last4Chars}{last4Chars}{last4Chars}");
   }
 }
 ```
