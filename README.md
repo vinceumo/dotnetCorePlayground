@@ -38,6 +38,8 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 30](#exercise-30)
     - [Exercise 31](#exercise-31)
     - [Exercise 32](#exercise-32)
+    - [Exercise 33](#exercise-33)
+    - [Exercise 34](#exercise-34)
 
 ### Exercise 1
 
@@ -977,6 +979,61 @@ class Program
     string last4Chars = (text.Length > 4) ? text.Substring(text.Length - 4) : text;
 
     Console.WriteLine($"{last4Chars}{last4Chars}{last4Chars}{last4Chars}");
+  }
+}
+```
+
+### Exercise 33
+
+Write a C# program to check if a given positive number is a multiple of 3 or a multiple of 7.
+
+Sample Output:
+
+- Input first integer:
+- 15
+- True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input integer: ");
+    int number = int.Parse(Console.ReadLine());
+
+    bool test = (number % 3 == 0 || number % 7 == 0) ? true : false;
+
+    Console.WriteLine(test);
+  }
+}
+```
+
+### Exercise 34
+
+Write a C# program to check if a string starts with a specified word
+
+- Note: Suppose the sentence starts with "Hello"
+- Sample Data: string1 = "Hello how are you?"
+- Result: Hello.
+
+Sample Output:
+
+- Input a string : Hello how are you?
+- True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input a string: ");
+    string text = Console.ReadLine();
+    string[] words = text.Split(" ");
+
+    Console.Write("Word to check: ");
+    string wordToCheck = Console.ReadLine();
+
+    Console.WriteLine((wordToCheck == words[0]));
   }
 }
 ```

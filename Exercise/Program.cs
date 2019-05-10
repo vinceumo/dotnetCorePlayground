@@ -7,11 +7,13 @@ namespace Exercise
   {
     static void Main(string[] args)
     {
-      Console.Write("Input a string ");
+      Console.Write("Input a string: ");
       string text = Console.ReadLine();
-      string last4Chars = (text.Length > 4) ? text.Substring(text.Length - 4) : text;
+      Console.Write("Word to check: ");
+      string wordToCheck = Console.ReadLine();
+      string[] words = text.Split(" ");
 
-      Console.WriteLine($"{last4Chars}{last4Chars}{last4Chars}{last4Chars}");
+      Console.WriteLine((wordToCheck == words[0]));
     }
   }
 }
