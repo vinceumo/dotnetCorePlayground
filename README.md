@@ -40,6 +40,12 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 32](#exercise-32)
     - [Exercise 33](#exercise-33)
     - [Exercise 34](#exercise-34)
+    - [Exercise 35](#exercise-35)
+    - [Exercise 36](#exercise-36)
+    - [Exercise 37](#exercise-37)
+    - [Exercise 38](#exercise-38)
+    - [Exercise 39](#exercise-39)
+    - [Exercise 40](#exercise-40)
 
 ### Exercise 1
 
@@ -1034,6 +1040,179 @@ class Program
     string wordToCheck = Console.ReadLine();
 
     Console.WriteLine((wordToCheck == words[0]));
+  }
+}
+```
+
+### Exercise 35
+
+Write a C# program to check two given numbers where one is less than 100 and other is greater than 200.
+
+Sample Output:
+
+- Input a first number(<100): 75
+- Input a second number(>100): 250
+- True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = new int[2];
+    Console.Write("Input a first number(<100): ");
+    numbers[0] = int.Parse(Console.ReadLine());
+    Console.Write("Input a second number(>100): ");
+    numbers[1] = int.Parse(Console.ReadLine());
+
+    Console.WriteLine((numbers[0] < 100 && numbers[1] > 100));
+  }
+}
+```
+
+### Exercise 36
+
+Write a C# program to check if an integer (from the two given integers) is in the range -10 to 10.
+
+Sample Output:
+
+- Input a first number: -5
+- Input a second number: 8
+- True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = new int[2];
+    Console.Write("Input a first number: ");
+    numbers[0] = int.Parse(Console.ReadLine());
+    Console.Write("Input a second number: ");
+    numbers[1] = int.Parse(Console.ReadLine());
+
+    Console.WriteLine((Math.Abs(numbers[0]) <= 10 || Math.Abs(numbers[1]) <= 10));
+  }
+}
+```
+
+### Exercise 37
+
+Write a C# program to check if "HP" appears at second position in a string and returns the string without "HP".
+
+- Test Data: PHP Tutorial
+
+  Sample Output:
+
+- P Tutorial
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    string text = "PHP Tutorial";
+
+    Console.WriteLine((text.Substring(1, 2) == "HP") ? text.Remove(1, 2) : text);
+  }
+}
+```
+
+### Exercise 38
+
+Write a C# program to get a new string of two characters from a given string. The first and second character of the given string must be "P" and "H", so PHP will be "PH".
+
+Test Data:
+
+- PHP
+
+Sample Output:
+
+- PH
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    string text = "PHP Tutorial";
+    string firstLetters = text.Substring(0, 2);
+
+    if (firstLetters == "PH")
+    {
+      Console.WriteLine(firstLetters);
+    }
+  }
+}
+```
+
+### Exercise 39
+
+Write a C# program to find the largest and lowest values from three integer values.
+
+Test Data:
+
+- Input first integer: 15
+- Input second integer: 25
+- Input third integer: 30
+
+Sample Output
+
+- Largest of three: 30
+- Lowest of three: 15
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = new int[3];
+    Console.Write("Input first integer: ");
+    numbers[0] = int.Parse(Console.ReadLine());
+    Console.Write("Input second integer: ");
+    numbers[1] = int.Parse(Console.ReadLine());
+    Console.Write("Input third integer: ");
+    numbers[2] = int.Parse(Console.ReadLine());
+
+    Array.Sort(numbers);
+
+    Console.WriteLine($"Largest of three: {numbers[2]}");
+    Console.WriteLine($"Lowest of three: {numbers[0]}");
+  }
+}
+```
+
+### Exercise 40
+
+Write a C# program to check the nearest value of 20 of two given integers and return 0 if two numbers are same.
+
+Test Data:
+
+- Input first integer: 15
+- Input second integer: 12
+
+Sample Output
+
+- 15
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = new int[2];
+    int numberToCompare = 20;
+
+    Console.Write("Input first integer: ");
+    numbers[0] = int.Parse(Console.ReadLine());
+    Console.Write("Input second integer: ");
+    numbers[1] = int.Parse(Console.ReadLine());
+
+    int[] difference = { Math.Abs(numberToCompare - numbers[0]), Math.Abs(numberToCompare - numbers[1]) };
+
+    int closestNumber = (difference[0] == difference[1]) ? 0 : (difference[0] > difference[1]) ? numbers[1] : numbers[0];
+
+    Console.WriteLine(closestNumber);
   }
 }
 ```
