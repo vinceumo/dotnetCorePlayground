@@ -60,6 +60,9 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 52](#exercise-52)
     - [Exercise 53](#exercise-53)
     - [Exercise 54](#exercise-54)
+    - [Exercise 55](#exercise-55)
+    - [Exercise 56](#exercise-56)
+    - [Exercise 57](#exercise-57)
 
 ### Exercise 1
 
@@ -1679,3 +1682,80 @@ class Program
   }
 }
 ```
+
+### Exercise 55
+
+Write a C# program to find the pair of adjacent elements that has the largest product of an given array.
+
+Test Data:
+
+- Original array: [ 0, -1, -1, -2 ]
+- Biggest pair product: 2;
+
+- Original array: [ 6, 1, 12, 3, 1, 4 ]
+- Biggest pair product: 36;
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.WriteLine(BiggestPairProduct(new int[] { 2, 4, 2, 6, 9, 3 }));
+    Console.WriteLine(BiggestPairProduct(new int[] { 0, -1, -1, -2 }));
+    Console.WriteLine(BiggestPairProduct(new int[] { 6, 1, 12, 3, 1, 4 }));
+    Console.WriteLine(BiggestPairProduct(new int[] { 1, 4, 3, 0 }));
+  }
+
+  static int BiggestPairProduct(int[] args)
+  {
+    int totalProduct = 0;
+
+    for (int i = 0; i < args.Length - 1; i++)
+    {
+      int pairProduct = args[i] * args[i + 1];
+      if (pairProduct > totalProduct) totalProduct = pairProduct;
+    }
+
+    return totalProduct;
+  }
+}
+```
+
+### Exercise 56
+
+Write a C# program to check if a given string is a palindrome or not.
+
+Sample Example:
+
+- For 'aaa' the output should be true
+- For 'abcd' the output should be false
+- 'A car, a man, a maraca' should be true
+- 'A but tuba' should be true
+
+http://www.palindromelist.net/
+
+```cs
+// using System.Text.RegularExpressions;
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Text: ");
+    string text = Console.ReadLine();
+
+    Console.WriteLine(IsPalindrome(text));
+  }
+  static bool IsPalindrome(string text)
+  {
+    string letters = Regex.Replace(text.ToLower(), @"[^A-Za-z0-9]+", String.Empty);
+    char[] chars = letters.ToCharArray();
+    Array.Reverse(chars);
+
+    return (letters.Equals(new string(chars)));
+  }
+}
+```
+
+### Exercise 57
+
+Write a C# program to find the pair of adjacent elements that has the highest product of an given array of integers
