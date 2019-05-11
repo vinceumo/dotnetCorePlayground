@@ -46,6 +46,20 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 38](#exercise-38)
     - [Exercise 39](#exercise-39)
     - [Exercise 40](#exercise-40)
+    - [Exercise 41](#exercise-41)
+    - [Exercise 42](#exercise-42)
+    - [Exercise 43](#exercise-43)
+    - [Exercise 44](#exercise-44)
+    - [Exercise 45](#exercise-45)
+    - [Exercise 46](#exercise-46)
+    - [Exercise 47](#exercise-47)
+    - [Exercise 48](#exercise-48)
+    - [Exercise 49](#exercise-49)
+    - [Exercise 50](#exercise-50)
+    - [Exercise 51](#exercise-51)
+    - [Exercise 52](#exercise-52)
+    - [Exercise 53](#exercise-53)
+    - [Exercise 54](#exercise-54)
 
 ### Exercise 1
 
@@ -1213,6 +1227,455 @@ class Program
     int closestNumber = (difference[0] == difference[1]) ? 0 : (difference[0] > difference[1]) ? numbers[1] : numbers[0];
 
     Console.WriteLine(closestNumber);
+  }
+}
+```
+
+### Exercise 41
+
+Write a C# program to check if a given string contains ‘w’ character between 1 and 3 times.
+
+Test Data:
+
+- Input a string (contains at least one 'w' char) : w3resource
+- Test the string contains 'w' character between 1 and 3 times:
+
+Sample Output:
+
+- True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input a string (contains at least one 'w' char): ");
+    string text = Console.ReadLine();
+    int count = 0;
+    char letterToCheck = 'w';
+
+    foreach (char letter in text.ToCharArray())
+    {
+      if (letter == letterToCheck) count++;
+    }
+
+    Console.WriteLine(count >= 1 && count <= 3);
+  }
+}
+```
+
+Or using `Linq`
+
+```cs
+// using System.Linq;
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input a string (contains at least one 'w' char): ");
+    string text = Console.ReadLine();
+    char letterToCheck = 'w';
+    int count = text.Count(letter => letter == letterToCheck);
+
+    Console.WriteLine(count >= 1 && count <= 3);
+  }
+}
+```
+
+### Exercise 42
+
+Write a C# program to create a new string where the first 4 characters will be in lower case. If the string is less than 4 characters then make the whole string in upper case.
+
+Test Data:
+
+- Input a string: w3r
+
+Sample Output
+
+- W3R
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input a string: ");
+    string text = Console.ReadLine();
+    string newString;
+
+    if (text.Length <= 4)
+    {
+      newString = text.ToUpper();
+    }
+    else
+    {
+      newString = text.Substring(0, 4).ToLower() + text.Substring(4);
+    }
+
+    Console.WriteLine(newString);
+  }
+}
+```
+
+### Exercise 43
+
+Write a C# program to check if a given string starts with "w" and immediately followed by two "ww".
+
+Test Data:
+
+- Input a string : www
+
+Sample Output
+
+- True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input a string: ");
+    string text = Console.ReadLine();
+    string testString = "www";
+    Console.WriteLine(text.Substring(0, 3) == testString);
+  }
+}
+```
+
+### Exercise 44
+
+Write a C# program to create a new string of every other character (odd position) from the first position of a given string.
+
+Test Data:
+
+- Input a string : w3resource
+
+Sample Output
+
+- wrsuc
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Input a string: ");
+    string text = Console.ReadLine();
+    string textResult = "";
+
+    for (int i = 0; i < text.Length; i += 2)
+    {
+      textResult += text[i];
+    }
+
+    Console.WriteLine(textResult);
+  }
+}
+```
+
+### Exercise 45
+
+Write a C# program to count a specified number in a given array of integers.
+
+Test Data:
+
+- Input an integer: 5
+
+Sample Output
+
+- Number of 5 present in the said array: 2
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 1, 2, 3, 5, 5, 5, 3, 2 };
+    Console.Write("Input an integer: ");
+    int numToCount = int.Parse(Console.ReadLine());
+    int count = 0;
+
+    foreach (int num in numbers)
+    {
+      if (num == numToCount) count++;
+    }
+
+    Console.WriteLine($"Number of {numToCount} present in the said array: {count}");
+  }
+}
+```
+
+Or using `Linq`
+
+```cs
+// using System.Linq;
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 1, 2, 3, 5, 5, 5, 3, 2 };
+    Console.Write("Input an integer: ");
+    int numToCount = int.Parse(Console.ReadLine());
+    int count = numbers.Count(num => num == numToCount);
+
+    Console.WriteLine($"Number of {numToCount} present in the said array: {count}");
+  }
+}
+```
+
+### Exercise 46
+
+Write a C# program to check if a number appears as either the first or last element of an array of integers and the length is 1 or more.
+
+Test Data:
+
+- Input an integer: 25
+
+Sample Output
+
+- False
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 1, 2, 3, 5, 5, 5, 3, 2 };
+    Console.Write("Input an integer: ");
+    int numToTest = int.Parse(Console.ReadLine());
+    bool test = (numbers.Length > 0) ? (numbers[0] == numToTest || numbers[numbers.Length - 1] == numToTest) : false;
+
+    Console.WriteLine(test);
+  }
+}
+```
+
+### Exercise 47
+
+Write a C# program to compute the sum of all the elements of an array of integers.
+
+Test Data:
+
+- Array1: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1]
+
+Sample Output
+
+- Sum: 69
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1 };
+    int sum = 0;
+
+    foreach (int num in numbers) sum += num;
+
+    Console.WriteLine(sum);
+  }
+}
+```
+
+Or using `Linq`
+
+```cs
+// using System.Linq;
+class Program
+  {
+    static void Main(string[] args)
+    {
+      int[] numbers = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1 };
+
+      Console.WriteLine(numbers.Sum());
+    }
+  }
+```
+
+### Exercise 48
+
+Write a C# program to check if the first element and the last element are equal of an array of integers and the length is 1 or more.
+
+Test Data:
+
+- Array1: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1]
+
+Sample Output
+
+- True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1 };
+    bool test = (numbers.Length > 0) ? (numbers[0] == numbers[numbers.Length - 1]) : false;
+
+    Console.WriteLine(test);
+  }
+}
+```
+
+### Exercise 49
+
+Write a C# program to check if the first element or the last element of the two arrays ( length 1 or more) are equal.
+
+Test Data:
+
+- Array1: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1]
+- Array2: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 5]
+- Check if the first element or the last element of the two arrays ( leng th 1 or more) are equal.
+
+Sample Output:
+
+- True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers1 = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1 };
+    int[] numbers2 = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 5 };
+    bool test = (numbers1.Length > 0 && numbers2.Length > 0) ? (numbers1[0].Equals(numbers2[0]) || numbers1[numbers1.Length - 1].Equals(numbers2[numbers2.Length - 1])) : false;
+
+    Console.WriteLine(test);
+  }
+}
+```
+
+### Exercise 50
+
+Write a C# program to rotate an array (length 3) of integers in left direction.
+
+Test Data:
+
+- Array1: [1, 2, 8]
+- After rotating array becomes: [2, 8, 1]
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1 };
+    int[] newNumbers = new int[numbers.Length];
+
+    for (int i = 0; i < numbers.Length; i++)
+    {
+      int index = (i - 1 == -1) ? numbers.Length - 1 : i - 1;
+      newNumbers[index] = numbers[i];
+    }
+
+    Console.WriteLine($"After rotating array becomes: [{string.Join(", ", newNumbers)}]");
+  }
+}
+```
+
+### Exercise 51
+
+Write a C# program to get the larger value between first and last element of an array (length 3) of integers.
+
+Test Data:
+
+- Array1: [1, 2, 5, 7, 8]
+- Highest value between first and last values of the said array: 8
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 1, 2, 5, 7, 8 };
+    int result = (numbers[0] > numbers[numbers.Length - 1]) ? numbers[0] : numbers[numbers.Length - 1];
+
+    Console.WriteLine($"Highest value between first and last values of the said array: {result}");
+  }
+}
+```
+
+### Exercise 52
+
+Write a C# program to create a new array of length containing the middle elements of three arrays (each length 3) of integers.
+
+Test Data:
+
+- Array1: [1, 2, 5]
+- Array2: [0, 3, 8]
+- Array3: [-1, 0, 2]
+- New array: [2, 3, 0]
+
+```cs
+//using System.Collections.Generic;
+
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers1 = { 1, 2, 5 };
+    int[] numbers2 = { 0, 3, 8 };
+    int[] numbers3 = { -1, 0, 2 };
+    List<int[]> numbersList = new List<int[]>
+    {
+      numbers1, numbers2, numbers3
+    };
+    int[] medianValues = new int[numbersList.Count];
+
+    for (int i = 0; i < numbersList.Count; i++)
+    {
+      int medianIndex = (numbersList[i].Length - 1) / 2;
+      medianValues[i] = numbersList[i][medianIndex];
+    }
+
+    Console.WriteLine($"New array: [{string.Join(", ", medianValues)}]");
+  }
+}
+```
+
+### Exercise 53
+
+Write a C# program to check if an array contains an odd number.
+
+Test Data:
+
+- Original array: [2, 4, 7, 8, 6]
+- Check if an array contains an odd number? True
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 2, 4, 1, 8, 6 };
+    bool hasOddNum = false;
+    int i = 0;
+    while (i < numbers.Length && !hasOddNum)
+    {
+      if (numbers[i] % 2 != 0) hasOddNum = true;
+      i++;
+    }
+    Console.WriteLine($"Check if an array contains an odd number? {hasOddNum}");
+  }
+}
+```
+
+### Exercise 54
+
+Write a C# program to get the century from a year.
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.Write("Year: ");
+    int year = int.Parse(Console.ReadLine());
+    int century = (year - 1) / 100 + 1;
+
+    Console.WriteLine((year < 1) ? "Please enter starting from 1 AD" : $"Century: {century}");
   }
 }
 ```
