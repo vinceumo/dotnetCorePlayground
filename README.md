@@ -63,6 +63,8 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 55](#exercise-55)
     - [Exercise 56](#exercise-56)
     - [Exercise 57](#exercise-57)
+    - [Exercise 58](#exercise-58)
+    - [Exercise 59](#exercise-59)
 
 ### Exercise 1
 
@@ -1758,4 +1760,104 @@ class Program
 
 ### Exercise 57
 
+(Same as 55)
+
 Write a C# program to find the pair of adjacent elements that has the highest product of an given array of integers
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.WriteLine(BiggestPairProduct(new int[] { 2, 4, 2, 6, 9, 3 }));
+    Console.WriteLine(BiggestPairProduct(new int[] { 0, -1, -1, -2 }));
+    Console.WriteLine(BiggestPairProduct(new int[] { 6, 1, 12, 3, 1, 4 }));
+    Console.WriteLine(BiggestPairProduct(new int[] { 1, 4, 3, 0 }));
+  }
+
+  static int BiggestPairProduct(int[] args)
+  {
+    int totalProduct = 0;
+
+    for (int i = 0; i < args.Length - 1; i++)
+    {
+      int pairProduct = args[i] * args[i + 1];
+      if (pairProduct > totalProduct) totalProduct = pairProduct;
+    }
+
+    return totalProduct;
+  }
+}
+```
+
+### Exercise 58
+
+Write a C# program which will accept a list of integers and checks how many integers are needed to complete the range.
+
+Sample Example [1, 3, 4, 7, 9], between 1-9 -> 2, 5, 6, 8 are not present in the list. So output will be 4.
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] numbers = { 1, 3, 4, 7, 99 };
+    Array.Sort(numbers);
+    int rangeLength = numbers[numbers.Length - 1] - numbers[0] + 1;
+
+    Console.WriteLine($"{rangeLength - numbers.Length} integers are missing to complete the list");
+  }
+}
+```
+
+### Exercise 59
+
+Write a C# program to check whether it is possible to create a strictly increasing sequence from a given sequence of integers as an array.
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.WriteLine(IsIncreasingSequence(new int[] { 1, 2, 3, 8, 6, 9 }));
+    Console.WriteLine(IsIncreasingSequence(new int[] { 0, 2, 10 }));
+    Console.WriteLine(IsIncreasingSequence(new int[] { 1, 8, 1, 3 }));
+    Console.WriteLine(IsIncreasingSequence(new int[] { 1, 2, 3 }));
+  }
+  static bool IsIncreasingSequence(int[] args)
+  {
+    bool isIncreasing = true;
+    int i = 0;
+
+    while (i < args.Length - 1 && isIncreasing)
+    {
+      if (args[i] > args[i + 1]) isIncreasing = false;
+      i++;
+    }
+
+    return isIncreasing;
+  }
+}
+```
+
+Or using `SequenceEqual` (`System.Linq`)
+
+```cs
+//using System.Linq;
+class Program
+{
+  static void Main(string[] args)
+  {
+    Console.WriteLine(IsIncreasingSequence(new int[] { 1, 2, 3, 8, 6, 9 }));
+    Console.WriteLine(IsIncreasingSequence(new int[] { 0, 2, 10 }));
+    Console.WriteLine(IsIncreasingSequence(new int[] { 1, 8, 1, 3 }));
+    Console.WriteLine(IsIncreasingSequence(new int[] { 1, 2, 3 }));
+  }
+  static bool IsIncreasingSequence(int[] args)
+  {
+    int[] sortArgs = (int[])args.Clone();
+    Array.Sort(sortArgs);
+    return (args.SequenceEqual(sortArgs));
+  }
+}
+```

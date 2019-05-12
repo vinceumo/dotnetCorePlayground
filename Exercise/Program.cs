@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Text.RegularExpressions;
+//using System.Text.RegularExpressions;
 //using System.Collections.Generic;
-//using System.Linq;
+using System.Linq;
 
 namespace Exercise
 {
@@ -9,18 +9,16 @@ namespace Exercise
   {
     static void Main(string[] args)
     {
-      Console.Write("Text: ");
-      string text = Console.ReadLine();
-
-      Console.WriteLine(IsPalindrome(text));
+      Console.WriteLine(IsIncreasingSequence(new int[] { 1, 2, 3, 8, 6, 9 }));
+      Console.WriteLine(IsIncreasingSequence(new int[] { 0, 2, 10 }));
+      Console.WriteLine(IsIncreasingSequence(new int[] { 1, 8, 1, 3 }));
+      Console.WriteLine(IsIncreasingSequence(new int[] { 1, 2, 3 }));
     }
-    static bool IsPalindrome(string text)
+    static bool IsIncreasingSequence(int[] args)
     {
-      string letters = Regex.Replace(text.ToLower(), @"[^A-Za-z0-9]+", String.Empty);
-      char[] chars = letters.ToCharArray();
-      Array.Reverse(chars);
-
-      return (letters.Equals(new string(chars)));
+      int[] sortArgs = (int[])args.Clone();
+      Array.Sort(sortArgs);
+      return (args.SequenceEqual(sortArgs));
     }
   }
 }
