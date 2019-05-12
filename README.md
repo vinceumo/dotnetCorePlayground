@@ -65,6 +65,9 @@ https://www.w3resource.com/csharp-exercises/basic/index.php
     - [Exercise 57](#exercise-57)
     - [Exercise 58](#exercise-58)
     - [Exercise 59](#exercise-59)
+    - [Exercise 60](#exercise-60)
+    - [Exercise 61](#exercise-61)
+    - [Exercise 62](#exercise-62)
 
 ### Exercise 1
 
@@ -1738,6 +1741,7 @@ http://www.palindromelist.net/
 
 ```cs
 // using System.Text.RegularExpressions;
+
 class Program
 {
   static void Main(string[] args)
@@ -1858,6 +1862,114 @@ class Program
     int[] sortArgs = (int[])args.Clone();
     Array.Sort(sortArgs);
     return (args.SequenceEqual(sortArgs));
+  }
+}
+```
+
+### Exercise 60
+
+Write a C# program to calculate the sum of all the integers of a rectangular matrix except those integers which are located below an integer of value 0.
+
+Sample Example:
+
+- matrix = [[0, 2, 3, 2], [0, 6, 0, 1], [4, 0, 3, 0]]
+- Eligible integers which will be participated to calculate the sum -
+- matrix = [[X, 2, 3, 2], [X, 6, X, 1], [X, X, X, X]]
+- Therefore sum will be: 2 + 3 + 2 + 6 + 1 = 14
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[][] numbers =
+    {
+      new int[] { 0, 2, 3, 2 },
+      new int[] { 0, 6, 0, 1 },
+      new int[] { 4, 0, 3, 0 },
+    };
+
+    Console.WriteLine(SumMatrix(numbers));
+  }
+
+  static int SumMatrix(int[][] args)
+  {
+    bool[] template = new bool[args[0].Length];
+    template = Array.ConvertAll<bool, bool>(template, b => b = true);
+    int sum = 0;
+
+    foreach (int[] row in args)
+    {
+      for (int i = 0; i < row.Length; i++)
+      {
+        if (template[i])
+        {
+          if (row[i] == 0)
+          {
+            template[i] = false;
+          }
+          else
+          {
+            sum += row[i];
+          }
+        }
+      }
+    }
+
+    return sum;
+  }
+}
+```
+
+### Exercise 61
+
+Write a C# program to sort the integers in ascending order without moving the number -5.
+
+```cs
+// using System.Linq;
+class Program
+{
+  static void Main(string[] args)
+  {
+    int[] arr = sortArrWithException(new int[] { 1, 77, -5, 0, -99, 4, -5, 3 }, -5);
+    Console.WriteLine(string.Join(", ", arr));
+  }
+  static int[] sortArrWithException(int[] args, int exception)
+  {
+    int[] numbers = args.Where(x => x != exception).OrderBy(x => x).ToArray();
+    int i = 0;
+
+    return args.Select(x => x != exception ? numbers[i++] : exception).ToArray();
+  }
+}
+```
+
+### Exercise 62
+
+Write a C# program to reverse the strings contained in each pair of matching parentheses in a given string and also remove the parentheses within the given string.
+
+```cs
+class Program
+{
+  static void Main(string[] args)
+  {
+    string text = "the quick (brown (test)) fox (jumps over) the lazy dog";
+
+    while (text.LastIndexOf("(") >= 0)
+    {
+      int openParenIndex = text.LastIndexOf("(");
+      int closeParenIndex = text.IndexOf(")", openParenIndex);
+
+      string textFirst = text.Substring(0, openParenIndex);
+      string textLast = text.Substring(closeParenIndex + 1);
+      string textInParen = text.Substring(openParenIndex + 1, closeParenIndex - openParenIndex - 1);
+      char[] textInParenReverse = textInParen.ToCharArray();
+      Array.Reverse(textInParenReverse);
+
+      text = textFirst + new string(textInParenReverse) + textLast;
+    }
+
+    Console.WriteLine(text);
   }
 }
 ```
